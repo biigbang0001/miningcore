@@ -1,0 +1,21 @@
+"nito": {
+        "id": "nito",
+        "name": "Nito",
+        "symbol": "NITO",
+        "family": "bitcoin",
+        "bech32": true,
+        "bech32Hrps": {
+            "bech32": "nito",
+            "bech32PubKeyHash": "nito",
+            "bech32ScriptHash": "nito"
+        },
+        "coinbaseHasher": { "hash": "sha256d" },
+        "headerHasher": { "hash": "sha256d" },
+        "blockHasher": {
+            "hash": "reverse",
+            "args": [ { "hash": "sha256d" } ]
+        },
+        "explorerBlockLink": "https://explorer.nito.network/api/getblockhash?index=$height$",
+        "explorerTxLink": "https://explorer.nito.network/api/getrawtransaction?txid={0}&decrypt=0",
+        "explorerAccountLink": "https://explorer.nito.network/ext/getaddress/{0}"
+    },
