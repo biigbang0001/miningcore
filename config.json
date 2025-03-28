@@ -1,0 +1,293 @@
+{
+    "logging": {
+        "level": "debug",
+        "enableConsoleLog": true,
+        "enableConsoleColors": true,
+        "logFile": "core.log",
+        "apiLogFile": "api.log",
+        "logBaseDirectory": "/root/miningcore/build/logs",
+        "perPoolLogFile": false
+    },
+    "banning": {
+        "manager": "Integrated",
+        "banOnJunkReceive": true,
+        "banOnInvalidShares": false
+    },
+    "notifications": {
+        "enabled": false,
+        "email": {
+            "host": "smtp.example.com",
+            "port": 587,
+            "user": "user",
+            "password": "password",
+            "fromAddress": "info@yourpool.org",
+            "fromName": "pool support"
+        },
+        "admin": {
+            "enabled": false,
+            "emailAddress": "user@example.com",
+            "notifyBlockFound": true
+        }
+    },
+    "persistence": {
+        "postgres": {
+            "host": "127.0.0.1",
+            "port": 5432,
+            "user": "miningcore",
+            "password": "passsecur",
+            "database": "miningcore"
+        }
+    },
+    "paymentProcessing": {
+        "enabled": true,
+        "interval": 600,
+        "shareRecoveryFile": "recovered-shares.txt"
+    },
+    "api": {
+        "enabled": true,
+        "listenAddress": "0.0.0.0",
+        "port": 4000,
+        "metricsIpWhitelist": [],
+        "rateLimiting": {
+            "disabled": false,
+            "rules": [
+                {
+                    "Endpoint": "*",
+                    "Period": "1s",
+                    "Limit": 5
+                }
+            ],
+            "ipWhitelist": []
+        }
+    },
+    "pools": [
+        {
+            "id": "bit",
+            "enabled": true,
+            "coin": "bit",
+            "addressType": "BechSegwit",
+            "address": "bit1qjacyvvsyvjhk85j77g7uwhshd9y8u6fgd08t7h",
+            "rewardRecipients": [
+                {
+                    "address": "bit1qdf2tfd3u86nr5kr08lvhe46whdeckxcfulvr4n",
+                    "percentage": 2.5
+                }
+            ],
+            "blockRefreshInterval": 200,
+            "jobRebroadcastTimeout": 10,
+            "clientConnectionTimeout": 600,
+            "banning": {
+                "enabled": true,
+                "time": 600,
+                "invalidPercent": 50,
+                "checkThreshold": 50
+            },
+            "ports": {
+                "3002": {
+                    "listenAddress": "0.0.0.0",
+                    "difficulty": 2048.0,
+                    "varDiff": {
+                        "minDiff": 256.0,
+                        "maxDiff": null,
+                        "targetTime": 30,
+                        "retargetTime": 20,
+                        "variancePercent": 10,
+                        "maxDelta": 5000
+                    },
+                    "tls": false,
+                    "tlsPfxFile": "/var/lib/certs/mycert.pfx"
+                }
+            },
+            "daemons": [
+                {
+                    "host": "127.0.0.1",
+                    "port": 8332,
+                    "user": "usersecur",
+                    "password": "passsecur",
+                    "zmqBlockNotifySocket": "tcp://127.0.0.1:28332",
+                    "templateArgs": {
+                        "rules": ["segwit"]
+                    }
+                }
+            ],
+            "paymentProcessing": {
+                "enabled": true,
+                "minimumPayment": 0.1,
+                "payoutScheme": "PPLNS",
+                "payoutSchemeConfig": {
+                    "factor": 2.0
+                }
+            },
+            "extra": {
+                "coinbaseSignature": "Nitopool"
+            }
+        },
+        {
+            "id": "nito",
+            "enabled": true,
+            "coin": "nito",
+            "addressType": "BechSegwit",
+            "address": "nito1qz4puxme5ukxa9fg484yerazext5l07adz9vhdr",
+            "rewardRecipients": [
+                {
+                    "address": "nito1qxk9txf7ngyx60ys2gvv0mrr3wle7hwpw8pt7gl",
+                    "percentage": 2.5
+                }
+            ],
+            "blockRefreshInterval": 200,
+            "jobRebroadcastTimeout": 10,
+            "clientConnectionTimeout": 600,
+            "banning": {
+                "enabled": true,
+                "time": 600,
+                "invalidPercent": 50,
+                "checkThreshold": 50
+            },
+            "ports": {
+                "3000": {
+                    "listenAddress": "0.0.0.0",
+                    "difficulty": 2048.0,
+                    "varDiff": {
+                        "minDiff": 256.0,
+                        "maxDiff": null,
+                        "targetTime": 30,
+                        "retargetTime": 20,
+                        "variancePercent": 10,
+                        "maxDelta": 5000
+                    },
+                    "tls": false
+                }
+            },
+            "daemons": [
+                {
+                    "host": "127.0.0.1",
+                    "port": 8825,
+                    "user": "usersecur",
+                    "password": "passsecur"
+                }
+            ],
+            "paymentProcessing": {
+                "enabled": true,
+                "minimumPayment": 0.512,
+                "payoutScheme": "PPLNS",
+                "payoutSchemeConfig": {
+                    "factor": 2.0
+                }
+            },
+            "extra": {
+                "coinbaseSignature": "Nitopool"
+            }
+        },
+        {
+            "id": "bitsolo",
+            "enabled": true,
+            "coin": "bit",
+            "addressType": "BechSegwit",
+            "address": "bit1qjacyvvsyvjhk85j77g7uwhshd9y8u6fgd08t7h",
+            "rewardRecipients": [
+                {
+                    "address": "bit1qdf2tfd3u86nr5kr08lvhe46whdeckxcfulvr4n",
+                    "percentage": 2.5
+                }
+            ],
+            "blockRefreshInterval": 200,
+            "jobRebroadcastTimeout": 10,
+            "clientConnectionTimeout": 600,
+            "banning": {
+                "enabled": true,
+                "time": 600,
+                "invalidPercent": 50,
+                "checkThreshold": 50
+            },
+            "ports": {
+                "3003": {
+                    "listenAddress": "0.0.0.0",
+                    "difficulty": 256000.0,
+                    "varDiff": {
+                        "minDiff": 256000.0,
+                        "maxDiff": null,
+                        "targetTime": 30,
+                        "retargetTime": 20,
+                        "variancePercent": 10,
+                        "maxDelta": 50000
+                    },
+                    "tls": false,
+                    "tlsPfxFile": "/var/lib/certs/mycert.pfx"
+                }
+            },
+            "daemons": [
+                {
+                    "host": "127.0.0.1",
+                    "port": 8332,
+                    "user": "usersecur",
+                    "password": "passsecur",
+                    "zmqBlockNotifySocket": "tcp://127.0.0.1:28332",
+                    "templateArgs": {
+                        "rules": ["segwit"]
+                    }
+                }
+            ],
+            "paymentProcessing": {
+                "enabled": true,
+                "minimumPayment": 0.1,
+                "payoutScheme": "SOLO"
+            },
+            "extra": {
+                "coinbaseSignature": "Nitopool Solo"
+            }
+        },
+        {
+            "id": "nitosolo",
+            "enabled": true,
+            "coin": "nito",
+            "addressType": "BechSegwit",
+            "address": "nito1qz4puxme5ukxa9fg484yerazext5l07adz9vhdr",
+            "rewardRecipients": [
+                {
+                    "address": "nito1qxk9txf7ngyx60ys2gvv0mrr3wle7hwpw8pt7gl",
+                    "percentage": 2.5
+                }
+            ],
+            "blockRefreshInterval": 200,
+            "jobRebroadcastTimeout": 10,
+            "clientConnectionTimeout": 600,
+            "banning": {
+                "enabled": true,
+                "time": 600,
+                "invalidPercent": 50,
+                "checkThreshold": 50
+            },
+            "ports": {
+                "3004": {
+                    "listenAddress": "0.0.0.0",
+                    "difficulty": 256000.0,
+                    "varDiff": {
+                        "minDiff": 256000.0,
+                        "maxDiff": null,
+                        "targetTime": 30,
+                        "retargetTime": 20,
+                        "variancePercent": 10,
+                        "maxDelta": 50000
+                    },
+                    "tls": false
+                }
+            },
+            "daemons": [
+                {
+                    "host": "127.0.0.1",
+                    "port": 8825,
+                    "user": "usersecur",
+                    "password": "passsecur"
+                }
+            ],
+            "paymentProcessing": {
+                "enabled": true,
+                "minimumPayment": 0.512,
+                "payoutScheme": "SOLO"
+            },
+            "extra": {
+                "coinbaseSignature": "Nitopool Solo"
+            }
+        }
+    ]
+}
