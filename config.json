@@ -103,11 +103,7 @@
                     "host": "127.0.0.1",
                     "port": 8332,
                     "user": "usersecur",
-                    "password": "passsecur",
-                    "zmqBlockNotifySocket": "tcp://127.0.0.1:28332",
-                    "templateArgs": {
-                        "rules": ["segwit"]
-                    }
+                    "password": "passsecur"
                 }
             ],
             "paymentProcessing": {
@@ -220,11 +216,7 @@
                     "host": "127.0.0.1",
                     "port": 8332,
                     "user": "usersecur",
-                    "password": "passsecur",
-                    "zmqBlockNotifySocket": "tcp://127.0.0.1:28332",
-                    "templateArgs": {
-                        "rules": ["segwit"]
-                    }
+                    "password": "passsecur"
                 }
             ],
             "paymentProcessing": {
